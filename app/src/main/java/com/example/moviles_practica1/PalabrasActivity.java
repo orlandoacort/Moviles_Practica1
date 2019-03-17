@@ -26,7 +26,11 @@ public class PalabrasActivity extends AppCompatActivity {
 
 
         TextView textView = (TextView) findViewById(R.id.idResultado);
+
         textView.setText("Cantidad de palabras: " + cpalabras);
+
+
+
 
 
 
