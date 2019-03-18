@@ -34,28 +34,30 @@ public class PalabrasActivity extends AppCompatActivity {
         textView.setText("TOTAL DE PALABRAS: " + cpalabras);
 
 
-        lista = (ListView)findViewById(R.id.simpleLV);
-        ArrayAdapter<String> arrayAdapter  = new ArrayAdapter<String> (this,R.layout.list_view,R.id.TvLv,palindromas(palabras)  );/*listas palabrasRepetidas(cpalabras)*/
-        lista.setAdapter(arrayAdapter);
+        ///////PALINDROMAS con array adapter
+      /*  lista = (ListView)findViewById(R.id.simpleLV);
+        ArrayAdapter<String> arrayAdapter  = new ArrayAdapter<String> (this,R.layout.list_view,R.id.TvLv,palindromas(palabras)  );//listas palabrasRepetidas(cpalabras)
+        lista.setAdapter(arrayAdapter); */
 
-        String cPalindromas = String.valueOf(contador); //C. DE PALINDROMAS
+
+
+
+
+        //PALINDROMAS(convirtiendo array en String)
+        String miarray[] = palindromas(palabras);
+        StringBuffer cadena = new StringBuffer();
+        for (int i=0;i<miarray.length;i++){
+            cadena =cadena.append(miarray[i]);
+        }
+        TextView textView3 = (TextView) findViewById(R.id.idResPalindromas);
+        textView3.setText("PALINDROMAS: " + "\n" +  cadena);
+
+
+
         //////CANTIDAD DE PALABRAS PALINDROMAS
-        TextView textView2 = (TextView) findViewById(R.id.idResPalindromas);
+        String cPalindromas = String.valueOf(contador); //C. DE PALINDROMAS
+        TextView textView2 = (TextView) findViewById(R.id.idResCPalindromas);
         textView2.setText("TOTAL DE PALINDROMAS: " + cPalindromas);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 
@@ -78,6 +80,7 @@ public class PalabrasActivity extends AppCompatActivity {
         String  reverso;
         String palabra[]= p.split(" ");
         String palResult[] = new String[palabra.length]  ;
+        String parcial[] = new String[palabra.length];
         for(int i =0;i<palabra.length;i++){
             reverso = "";
             String original = palabra[i];
@@ -94,17 +97,17 @@ public class PalabrasActivity extends AppCompatActivity {
                 palResult[i] = original + " Es palindroma " + "\n";
                 contador++;
             }
-            else {
+           else {
                // palResult[i] = original + " NO es palindroma" + "\n";
                 palResult[i] = "";
             }
-
-
 
         }
 
 
         return palResult;
+
+
     }
 
 

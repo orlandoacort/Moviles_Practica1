@@ -17,8 +17,8 @@
 
         <EditText
             android:id="@+id/edtTexto"
-            android:layout_width="174dp"
-            android:layout_height="142dp"
+            android:layout_width="366dp"
+            android:layout_height="375dp"
             android:hint="Ingrese el texto....."
             android:textSize="18dp"
 
