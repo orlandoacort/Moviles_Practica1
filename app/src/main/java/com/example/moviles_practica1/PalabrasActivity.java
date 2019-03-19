@@ -15,9 +15,11 @@ import java.util.Arrays;
 
 public class PalabrasActivity extends AppCompatActivity {
 
+    private static int cpalindroma;
+
     ListView lista ;
     String listas[] = {"1","2","3","4","5"};
-    private static int contador=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,7 @@ public class PalabrasActivity extends AppCompatActivity {
 
 
         //////CANTIDAD DE PALABRAS PALINDROMAS
-        String cPalindromas = String.valueOf(contador); //C. DE PALINDROMAS
+        String cPalindromas = String.valueOf(cpalindroma); //C. DE PALINDROMAS
         TextView textView2 = (TextView) findViewById(R.id.idResCPalindromas);
         textView2.setText("TOTAL DE PALINDROMAS: " + cPalindromas);
 
@@ -77,6 +79,8 @@ public class PalabrasActivity extends AppCompatActivity {
 
     public static String[] palindromas(String p){
 
+
+        int contador=0;
         String  reverso;
         String palabra[]= p.split(" ");
         String palResult[] = new String[palabra.length]  ;
@@ -88,6 +92,8 @@ public class PalabrasActivity extends AppCompatActivity {
             int length = original.length();
 
             for (int j=length-1;j>=0;j--){
+
+                if(original.length()>1)
                 reverso = reverso + original.charAt(j);
 
 
@@ -104,7 +110,7 @@ public class PalabrasActivity extends AppCompatActivity {
 
         }
 
-
+        cpalindroma = contador;
         return palResult;
 
 
