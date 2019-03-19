@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Moviles_Practica1</string>
+    <string name="app_name">Practica1</string>
+    <string name="string_edt">Ingrese el texto.....</string>
+    <string name="string_btn">ENVIAR</string>
 </resources>

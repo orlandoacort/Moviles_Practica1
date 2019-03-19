@@ -19,7 +19,7 @@
             android:id="@+id/edtTexto"
             android:layout_width="366dp"
             android:layout_height="375dp"
-            android:hint="Ingrese el texto....."
+            android:hint="@string/string_edt"
             android:textSize="18dp"
 
             >
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_gravity="center"
-            android:text="ENVIAR" />
+            android:text="@string/string_btn" />
 
     </LinearLayout>
 

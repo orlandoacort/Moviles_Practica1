@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Practice1</string>
+    <string name="string_edt">Add text.....</string>
+    <string name="string_btn">submit</string>
+
+</resources>
