@@ -28,7 +28,10 @@ public class PalabrasActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String palabras= intent.getStringExtra(MainActivity.EXTRA_STRING);
         String cpalabras = contarPalabras(palabras);
-        //String[] prepetidas = palabrasRepetidas(palabras);
+
+
+
+
 
 
        ///////CANTIDAD DE PALABRAS
@@ -36,13 +39,25 @@ public class PalabrasActivity extends AppCompatActivity {
         textView.setText("TOTAL DE PALABRAS: " + cpalabras);
 
 
+        //Palabras repetidas
+
+        //repetidas(convirtiendo array en String)
+        String miarray2[] = palabrasRepetidas(palabras);
+        StringBuffer cadena2 = new StringBuffer();
+        for (int i=0;i<miarray2.length;i++){
+            cadena2 =cadena2.append(miarray2[i]);
+        }
+
+        TextView tvRepetidas = (TextView) findViewById(R.id.idRepetidas);
+        tvRepetidas.setText("REPITE: \n" + cadena2 );
+
+
+
+
         ///////PALINDROMAS con array adapter
       /*  lista = (ListView)findViewById(R.id.simpleLV);
         ArrayAdapter<String> arrayAdapter  = new ArrayAdapter<String> (this,R.layout.list_view,R.id.TvLv,palindromas(palabras)  );//listas palabrasRepetidas(cpalabras)
         lista.setAdapter(arrayAdapter); */
-
-
-
 
 
         //PALINDROMAS(convirtiendo array en String)
@@ -117,32 +132,42 @@ public class PalabrasActivity extends AppCompatActivity {
     }
 
 
-    ////////////////////////////////////////////////////////
-   /* public static String[] palabrasRepetidas(String p){
+    public static String[] palabrasRepetidas(String p){
         String palabras [] = p.split(" ");
         String palabrasAyu [] = p.split(" ");
-        int contador[] = new int[Integer.parseInt(contarPalabras(p))-1];
-        String Scont[] = new String[Integer.parseInt(contarPalabras(p))-1];
+        int contador[] = new int[palabras.length];
+        String contadorResult[] = new String[palabras.length];
+        //   String Scont[] = new String[palabras.length];
 
-        for(int i=0; i< Integer.parseInt(contarPalabras(p)) ; i++ ){
+        for(int i=0; i< palabras.length ; i++ ){
             contador[i] = 0;
             String palabra = palabras[i];
 
-            for(int j=0;j<Integer.parseInt(contarPalabras(p)); j++){
+            for(int j=0;j<palabras.length; j++){
                 if (palabra.equalsIgnoreCase(palabrasAyu[j])){
                     contador[i]++;
 
-                    palabras[j]= "";
+                    //palabras[j]= "";
                 }
 
             }
-            Scont[i] = String.valueOf(contador[i]) ;
+
+            if (contador[i]>1 || contador[i]==0 ){
+                contadorResult[i] = palabra + " Se repite: " + contador[i] + " veces \n"  ;
+            }
+            else {
+
+                contadorResult[i] = palabra + " Se repite: " + contador[i] + " vez \n"  ;
+            }
+
+
+            //  Scont[i] = String.valueOf(contador[i]) ;
+           // System.out.println(palabrasAyu[i] + " se repite: " + contador[i]);
         }
 
 
-        return palabras;
+        return contadorResult;
     }
-*/
 
 
 
